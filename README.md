@@ -7,8 +7,6 @@
 * Avoid all styling by using Twitter bootstrap.
 * Use ReactJS for composing the application.
 
-See docs/todo.md for detailed notes.
-
 ## Building
 
 To build react:
