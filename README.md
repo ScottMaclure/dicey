@@ -7,6 +7,10 @@
 * Avoid all styling by using Twitter bootstrap.
 * Use ReactJS for composing the application.
 
+For the agile board, see here:
+
+https://waffle.io/ScottMaclure/dicey
+
 ## Building
 
 To build react:
