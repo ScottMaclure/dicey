@@ -21,13 +21,13 @@ exports.PageHeader = React.createClass({
 	},
 	
 	render: function () {
+		/*jshint ignore:start*/
 		return (
-			/*jshint ignore:start*/
 			<h1 className="pageHeader">
 				{this.props.title}
 			</h1>
-			/*jshint ignore:end*/
 		);
+		/*jshint ignore:end*/
 	}
 
 });

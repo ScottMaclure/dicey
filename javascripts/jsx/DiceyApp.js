@@ -10,23 +10,19 @@
 
 var React = require('react');
 var PageHeader = require('./PageHeader.js').PageHeader;
+var DiceBar = require('./DiceBar.js').DiceBar;
 
 exports.DiceyApp = React.createClass({
-
-	propTypes: {
-		pageTitle: React.PropTypes.string
-	},
-
-	getDefaultProps: function () {
-		return {
-			pageTitle: 'Welcome to Dicey!'
-		};
-	},
 
 	render: function () {
 		/*jshint ignore:start*/
 		return (
-			<PageHeader title={this.props.pageTitle}/>
+			<div className="container">
+				<div className="diceyApp">
+					<PageHeader title={this.props.pageTitle}/>
+					<DiceBar dice={this.props.dice}/>
+				</div>
+			</div>
 		);
 		/*jshint ignore:end*/
 	}
