@@ -4,8 +4,10 @@
 
 * Responsive dice-rolling app.
 * Fits well with our Use Cases.
-* Avoid styling with Twitter bootstrap.
+* Avoid all styling by using Twitter bootstrap.
 * Use ReactJS for composing the application.
+
+See docs/todo.md for detailed notes.
 
 ## Building
 
@@ -19,4 +21,14 @@ To build a browserified JS:
 
 ```
 browserify javascripts/dicey.js > public/bundle.js
+```
+
+## gh-pages
+
+Guide:
+
+https://help.github.com/articles/creating-project-pages-manually
+
+```
+cp -pr public/* ../dicey-gh-pages/
 ```
