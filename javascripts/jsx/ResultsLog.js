@@ -12,7 +12,22 @@ var React = require('react');
 
 exports.ResultsLog = React.createClass({
 
+	propTypes: {
+		log: React.PropTypes.arrayOf(React.PropTypes.string)
+	},
+
+	getDefaultProps: function () {
+		return {
+			log: []
+		};
+	},
+
 	render: function () {
+
+		var logEntries = this.props.log.reverse().map(function (log) {
+			return log + '\n';
+		});
+
 		/*jshint ignore:start*/
 		return (
 			<div className="resultsLog">
@@ -22,7 +37,7 @@ exports.ResultsLog = React.createClass({
 				<div className="row">
 					<div className="col-xs-12">
 						<pre className="resultsLog__output">
-							TODO...
+							{logEntries}
 						</pre>
 					</div>
 				</div>

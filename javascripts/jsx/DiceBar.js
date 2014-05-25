@@ -23,13 +23,14 @@ exports.DiceBar = React.createClass({
 	},
 
 	handleClick: function () {
-		console.debug('handleClick, arguments:', arguments);
-		this.props.onDieRoll('1dTest');
+
+		// FIXME Why isn't there a simpler way to pass dynamic properties for clicks?
+		var die = $(this.getDOMNode()).find('[data-reactid="' + arguments[1] + '"]').text();
+		
+		this.props.onDieRoll(die);
 	},
 
 	render: function () {
-
-		var self = this;
 
 		var diceButtons = this.props.dice.map(function (die) {
 			/*jshint ignore:start*/
@@ -37,13 +38,11 @@ exports.DiceBar = React.createClass({
 				<button 
 					type="button" 
 					className="btn btn-xs btn-primary"
-					onClick={self.handleClick}
-				>
-						{die}
-				</button>
+					onClick={this.handleClick}
+				>{die}</button>
 			);
 			/*jshint ignore:end*/
-		});
+		}.bind(this));
 
 		/*jshint ignore:start*/
 		return (
