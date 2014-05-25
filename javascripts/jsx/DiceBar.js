@@ -22,12 +22,25 @@ exports.DiceBar = React.createClass({
 		};
 	},
 
+	handleClick: function () {
+		console.debug('handleClick, arguments:', arguments);
+		this.props.onDieRoll('1dTest');
+	},
+
 	render: function () {
+
+		var self = this;
 
 		var diceButtons = this.props.dice.map(function (die) {
 			/*jshint ignore:start*/
 			return (
-				<button type="button" class="btn btn-lg btn-primary">{die}</button>
+				<button 
+					type="button" 
+					className="btn btn-xs btn-primary"
+					onClick={self.handleClick}
+				>
+						{die}
+				</button>
 			);
 			/*jshint ignore:end*/
 		});
@@ -43,7 +56,7 @@ exports.DiceBar = React.createClass({
 			</div>
 		);
 		/*jshint ignore:end*/
-		
+
 	}
 
 });

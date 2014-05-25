@@ -11,6 +11,7 @@
 var React = require('react');
 var PageHeader = require('./PageHeader.js').PageHeader;
 var DiceBar = require('./DiceBar.js').DiceBar;
+var ResultsLog = require('./ResultsLog.js').ResultsLog;
 
 exports.DiceyApp = React.createClass({
 
@@ -20,11 +21,19 @@ exports.DiceyApp = React.createClass({
 			<div className="container">
 				<div className="diceyApp">
 					<PageHeader title={this.props.pageTitle}/>
-					<DiceBar dice={this.props.dice}/>
+					<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
+					<ResultsLog/>
 				</div>
 			</div>
 		);
 		/*jshint ignore:end*/
+	},
+
+	/**
+	 * User has rolled a die.
+	 */
+	handleDieRoll: function (die, xhr) {
+		console.debug('handleDieRoll, die:', die);
 	}
 	
 });
