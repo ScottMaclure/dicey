@@ -1,0 +1,11 @@
+{
+    "name": "dicey",
+    "description": "Pen-and-paper roleplaying game aid - dice roller.",
+    "version": "0.0.1",
+        "devDependencies": {
+        "react": "*",
+        "react-tools": "*",
+        "browserify": "*",
+        "jquery": "*"
+    }
+}
