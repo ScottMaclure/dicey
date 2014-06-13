@@ -46,7 +46,11 @@ exports.DiceyApp = React.createClass({
 							<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
 						</div>
 						<div className="col-xs-9">
-							<ResultsLog log={this.state.resultsLog}/>
+							<ResultsLog 
+								log={this.state.resultsLog}
+								onResultsClear={this.handleResultsClear}
+								onResultsSpace={this.handleResultsSpace}
+							/>
 						</div>
 					</div>
 
@@ -75,10 +79,19 @@ exports.DiceyApp = React.createClass({
 			']'
 		].join('');
 
-		resultsLog.push(timeStamp + ' ' + die + ': ' + RollDice.roll(die));
+		resultsLog.unshift(timeStamp + ' ' + die + ': ' + RollDice.roll(die));
 
 		this.setState({ resultsLog: resultsLog });
 
+	},
+
+	handleResultsClear: function () {
+		this.setState({ resultsLog: [] });
+	},
+
+	handleResultsSpace: function () {
+		this.state.resultsLog.unshift('---');
+		this.setState({ resultsLog: this.state.resultsLog });
 	}
 	
 });
