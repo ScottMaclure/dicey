@@ -7,7 +7,7 @@ var diceyApp = require('./build/DiceyApp.js').DiceyApp;
 
 // TODO Load from JSON file? From LocalStorage?
 var data = {
-	pageTitle: 'Dicey, die roller.',
+	pageTitle: 'Dicey, a die roller.',
 	dice: [
 		'1d4', '1d6', '1d8', '1d10', '1d12', '1d20', '1d100'
 	],
