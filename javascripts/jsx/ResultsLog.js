@@ -31,17 +31,9 @@ exports.ResultsLog = React.createClass({
 		/*jshint ignore:start*/
 		return (
 			<div className="resultsLog">
-				
-				<h2>Results</h2>
-
-				<div className="row">
-					<div className="col-xs-12">
-						<pre className="resultsLog__output">
-							{logEntries}
-						</pre>
-					</div>
-				</div>
-
+				<pre className="resultsLog__output">
+					{logEntries}
+				</pre>
 			</div>
 		);
 		/*jshint ignore:end*/

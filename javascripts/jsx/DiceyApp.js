@@ -36,11 +36,22 @@ exports.DiceyApp = React.createClass({
 		/*jshint ignore:start*/
 		return (
 			<div className="container">
+
 				<div className="diceyApp">
+					
 					<PageHeader title={this.props.pageTitle}/>
-					<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
-					<ResultsLog log={this.state.resultsLog}/>
+
+					<div className="row">
+						<div className="col-xs-3">
+							<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
+						</div>
+						<div className="col-xs-9">
+							<ResultsLog log={this.state.resultsLog}/>
+						</div>
+					</div>
+
 				</div>
+
 			</div>
 		);
 		/*jshint ignore:end*/

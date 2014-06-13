@@ -37,7 +37,7 @@ exports.DiceBar = React.createClass({
 			return (
 				<button 
 					type="button" 
-					className="btn btn-xs btn-primary"
+					className="btn btn-primary"
 					onClick={this.handleClick}
 				>{die}</button>
 			);
@@ -47,10 +47,8 @@ exports.DiceBar = React.createClass({
 		/*jshint ignore:start*/
 		return (
 			<div className="diceBar">
-				<div className="row">
-					<div className="col-xs-12">
-						{diceButtons}
-					</div>
+				<div className="btn-group-vertical btn-group-lg">
+					{diceButtons}
 				</div>
 			</div>
 		);
