@@ -11,18 +11,13 @@ For the agile board, see here:
 
 https://waffle.io/ScottMaclure/dicey
 
-## Building
+## Building with Gulp
 
-To build react:
-
-```
-node ./node_modules/react-tools/bin/jsx javascripts/jsx javascripts/build
-```
-
-To build a browserified JS:
 
 ```
-browserify javascripts/dicey.js > public/bundle.js
+npm install
+sudo npm install -g gulp
+gulp
 ```
 
 ## gh-pages
