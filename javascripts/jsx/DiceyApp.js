@@ -18,7 +18,8 @@ var ResultsActions = require('./ResultsActions.js').ResultsActions;
 var ResultsLog = require('./ResultsLog.js').ResultsLog;
 
 // Helper libraries
-var RollDice = require('../RollDice.js').RollDice;
+var DiceyUtils = require('../DiceyUtils.js').DiceyUtils;
+var droll = require('droll');
 
 exports.DiceyApp = React.createClass({
 
@@ -49,10 +50,10 @@ exports.DiceyApp = React.createClass({
 					<PageHeader title={this.props.pageTitle}/>
 
 					<div className="row">
-						<div className="col-xs-3">
+						<div className="col-xs-3 col-md-1">
 							&nbsp;
 						</div>
-						<div className="col-xs-9">
+						<div className="col-xs-9 col-md-11">
 							<ResultsActions
 								onResultsClear={this.handleResultsClear}
 								onResultsSpace={this.handleResultsSpace}
@@ -92,20 +93,13 @@ exports.DiceyApp = React.createClass({
 	handleDieRoll: function (die) {
 
 		var resultsLog = this.state.resultsLog;
-		var now = new Date();
 
 		// Generate a nice, readable timestamp, using zero-padding.
-		var timeStamp = [
-			'[',
-			RollDice.zeroPad(now.getHours(), 2),
-			':',
-			RollDice.zeroPad(now.getMinutes(), 2),
-			':',
-			RollDice.zeroPad(now.getSeconds(), 2),
-			']'
-		].join('');
+		var timeStamp = DiceyUtils.getFormattedTimestamp(new Date());
 
-		var dieResult = RollDice.roll(die);
+		// Use droll library, format into a standard string.
+		var rollData = droll.roll(die);
+		var dieResult = DiceyUtils.getDieResultFromDroll(rollData);
 
 		resultsLog.unshift(timeStamp + ' ' + die + ': ' + dieResult);
 
