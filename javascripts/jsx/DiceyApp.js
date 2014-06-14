@@ -23,6 +23,16 @@ var droll = require('droll');
 
 exports.DiceyApp = React.createClass({
 
+	/**
+	 * http://facebook.github.io/react/docs/reusable-components.html
+	 */
+	propTypes: {
+		pageTitle: React.PropTypes.string,
+		resultsLog: React.PropTypes.arrayOf(React.PropTypes.string),
+		latestResult: React.PropTypes.object,
+		diceGroups: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.string))
+	},
+
 	getInitialState: function () {
 		return {
 			resultsLog: [],
@@ -64,7 +74,7 @@ exports.DiceyApp = React.createClass({
 					<div className="row">
 						<div className="col-xs-3 col-md-1">
 
-							<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
+							<DiceBar diceGroups={this.props.diceGroups} onDieRoll={this.handleDieRoll}/>
 
 						</div>
 						<div className="col-xs-9  col-md-11">
