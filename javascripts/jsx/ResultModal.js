@@ -26,7 +26,7 @@ exports.ResultModal = React.createClass({
 		/*jshint ignore:start*/
 		return (
 			<div id="ResultModal" className="modal fade"
-				tabindex="-1" role="dialog" aria-labelledby="ResultModal" aria-hidden="true">
+				tabIndex="-1" role="dialog" aria-labelledby="ResultModal" aria-hidden="true">
 				<div className="modal-dialog modal-sm">
 					<div className="modal-content">
 						<p className="text-center">{this.props.timeStamp}</p>
