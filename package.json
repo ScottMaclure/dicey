@@ -12,6 +12,7 @@
     "gulp-browserify": "^0.5.0",
     "gulp-rename": "^1.2.0",
     "node-static": "^0.7.3",
-    "droll": "^0.1.1"
+    "droll": "^0.1.1",
+    "gulp-uglify": "^0.3.0"
   }
 }
