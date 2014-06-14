@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var react = require('gulp-react');
 var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
+// @see https://github.com/terinjokes/gulp-uglify
+var uglify = require('gulp-uglify');
 
 var paths = {
 	scripts: [
@@ -28,6 +30,7 @@ gulp.task('browserify', function () {
 			debug: false
 		}))
 		.pipe(rename('bundle.js'))
+		.pipe(uglify())
 		.pipe(gulp.dest('public'));
 });
 
