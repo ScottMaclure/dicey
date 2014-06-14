@@ -10,6 +10,7 @@
     "gulp-react": "^0.3.3",
     "gulp": "^3.8.0",
     "gulp-browserify": "^0.5.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "node-static": "^0.7.3"
   }
 }
