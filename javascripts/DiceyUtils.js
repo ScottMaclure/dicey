@@ -44,7 +44,7 @@ var DiceyUtils = {
 			return rollData.total;
 		}
 
-		return '[' + rollData.rolls + '] = ' + rollData.total;
+		return '[' + rollData.rolls.join(', ') + '] = ' + rollData.total;
 	}
 
 }
