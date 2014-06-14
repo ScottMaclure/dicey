@@ -61,12 +61,12 @@ exports.DiceyApp = React.createClass({
 					</div>
 
 					<div className="row">
-						<div className="col-xs-3">
+						<div className="col-xs-3 col-md-1">
 
 							<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
 
 						</div>
-						<div className="col-xs-9">
+						<div className="col-xs-9  col-md-11">
 
 							<ResultsLog log={this.state.resultsLog} />
 
