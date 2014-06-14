@@ -133,7 +133,14 @@ exports.DiceyApp = React.createClass({
 
 	handleResultsSpace: function () {
 		this.state.resultsLog.unshift('---');
-		this.setState({ resultsLog: this.state.resultsLog });
+		this.setState({
+			resultsLog: this.state.resultsLog,
+			latestResult: {
+				timeStamp: '',
+				dieString: '',
+				dieResult: ''
+			}
+		});
 	}
 
 });

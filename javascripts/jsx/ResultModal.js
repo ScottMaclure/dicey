@@ -11,8 +11,13 @@ exports.ResultModal = React.createClass({
 	 */
 	componentDidUpdate: function (prevProps, prevState) {
 
-		// Trigger Bootstrap's modal functionality.
-		$(this.getDOMNode()).modal();
+		// Show only if truthy.
+		if (this.props.dieString) {
+
+			// Trigger Bootstrap's modal functionality.
+			$(this.getDOMNode()).modal();
+
+		}
 
 	},
 
