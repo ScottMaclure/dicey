@@ -13,6 +13,8 @@ var React = require('react');
 // React app components.
 var PageHeader = require('./PageHeader.js').PageHeader;
 var DiceBar = require('./DiceBar.js').DiceBar;
+var ResultModal = require('./ResultModal.js').ResultModal;
+var ResultsActions = require('./ResultsActions.js').ResultsActions;
 var ResultsLog = require('./ResultsLog.js').ResultsLog;
 
 // Helper libraries
@@ -43,18 +45,25 @@ exports.DiceyApp = React.createClass({
 
 					<div className="row">
 						<div className="col-xs-3">
+
 							<DiceBar dice={this.props.dice} onDieRoll={this.handleDieRoll}/>
+
 						</div>
 						<div className="col-xs-9">
-							<ResultsLog 
-								log={this.state.resultsLog}
+							
+							<ResultsActions
 								onResultsClear={this.handleResultsClear}
 								onResultsSpace={this.handleResultsSpace}
 							/>
+							
+							<ResultsLog log={this.state.resultsLog} />
+
 						</div>
 					</div>
 
 				</div>
+
+				<ResultModal/>
 
 			</div>
 		);
