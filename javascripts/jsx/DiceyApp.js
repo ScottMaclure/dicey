@@ -110,8 +110,9 @@ exports.DiceyApp = React.createClass({
 		// Use droll library, format into a standard string.
 		var rollData = droll.roll(die);
 		var dieResult = DiceyUtils.getDieResultFromDroll(rollData);
+		var logEntry = timeStamp + ' ' + die + ': ' + dieResult;
 
-		resultsLog.unshift(timeStamp + ' ' + die + ': ' + dieResult);
+		resultsLog.unshift(logEntry);
 
 		this.setState({
 			resultsLog: resultsLog,
