@@ -33,13 +33,3 @@ npm start
 # watch js and re-bundle on changes
 npm run watch
 ```
-
-## Deployment with gh-pages
-
-Guide:
-
-https://help.github.com/articles/creating-project-pages-manually
-
-```
-cp -pr public/* ../dicey-gh-pages/
-```
