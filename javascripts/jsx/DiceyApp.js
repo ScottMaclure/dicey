@@ -10,14 +10,14 @@
 var React = require('react');
 
 // React app components.
-var PageHeader = require('./PageHeader.js').PageHeader;
-var DiceBar = require('./DiceBar.js').DiceBar;
-var ResultModal = require('./ResultModal.js').ResultModal;
-var ResultsActions = require('./ResultsActions.js').ResultsActions;
-var ResultsLog = require('./ResultsLog.js').ResultsLog;
+var PageHeader = require('./PageHeader').PageHeader;
+var DiceBar = require('./DiceBar').DiceBar;
+var ResultModal = require('./ResultModal').ResultModal;
+var ResultsActions = require('./ResultsActions').ResultsActions;
+var ResultsLog = require('./ResultsLog').ResultsLog;
 
 // Helper libraries
-var DiceyUtils = require('../DiceyUtils.js').DiceyUtils;
+var DiceyUtils = require('../DiceyUtils').DiceyUtils;
 var droll = require('droll');
 
 exports.DiceyApp = React.createClass({

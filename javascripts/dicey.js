@@ -4,7 +4,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var DiceyApp = require('./jsx/DiceyApp.js').DiceyApp;
+var DiceyApp = require('./jsx/DiceyApp').DiceyApp;
 
 // TODO Load from JSON file? From LocalStorage?
 var data = {
