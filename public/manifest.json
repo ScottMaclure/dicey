@@ -2,9 +2,8 @@
   "name": "dicey",
   "short_name": "dicey",
   "lang": "en-US",
-  "start_url": "/",
+  "start_url": "/?app=true",
   "display": "standalone",
-  "orientation": "portrait",
   "theme_color": "#337ab7",
   "icons": [
     {
