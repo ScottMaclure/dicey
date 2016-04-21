@@ -6,9 +6,9 @@ Dicey is a web-based die rolling application for use in tabletop roleplaying gam
 
 The primary design focus is to have dicey running on your mobile phone, and you use it as a replacement for physical dice.
 
-Website:
+Official site:
 
-http://scott.maclure.com.au/dicey/
+https://dicey.firebaseapp.com/
 
 ## Goals
 
