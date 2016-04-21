@@ -1,0 +1,23 @@
+/* TODO Sass, or similar. */
+body {
+	padding-top: 70px;
+}
+
+.navbar-brand img {
+	display: inline-block;
+	margin-right: 0.5em;
+}
+
+.btn-group-vertical > button {
+	margin-bottom: 1em;
+}
+
+.mainRowLeft {
+	padding: 0 0.5em 0 0;
+}
+.mainRowCenter {
+	padding: 0;
+}
+.mainRowRight {
+	padding: 0 0 0 0.5em;
+}
