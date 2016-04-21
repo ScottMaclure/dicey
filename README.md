@@ -22,12 +22,16 @@ For the agile board, see here:
 
 https://waffle.io/ScottMaclure/dicey
 
-## Building with Gulp
+## Building the web app
+
+Two things:
 
 ```
-npm install
-sudo npm install -g gulp
-gulp
+# install and kick off https server
+npm start
+
+# watch js and re-bundle on changes
+npm run watch
 ```
 
 ## Deployment with gh-pages
