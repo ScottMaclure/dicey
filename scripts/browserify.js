@@ -3,7 +3,9 @@ var fs = require('fs'),
 	watchify = require('watchify'),
 	babelify = require('babelify');
 
-var isDebugMode = process.env.NODE_ENV === 'development';
+// Disable sourcemaps for now, etc.
+// var isDebugMode = process.env.NODE_ENV === 'development';
+var isDebugMode = false;
 
 var b = browserify({
 		entries: ['./javascripts/dicey.js'],
