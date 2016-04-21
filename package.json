@@ -4,7 +4,7 @@
   "version": "2.0.1",
   "scripts": {
     "start": "npm prune && npm install && npm run server",
-    "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt --verbose -d public/",
+    "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt --verbose --compress -d public/",
     "watch": "node ./scripts/browserify.js"
   },
   "devDependencies": {
