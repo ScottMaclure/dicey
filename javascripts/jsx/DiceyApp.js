@@ -3,7 +3,6 @@
  *
  * The main application component.
  *
- * @jsx React.DOM
  **/
 
 /*jshint unused:false*/

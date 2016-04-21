@@ -3,7 +3,6 @@
  *
  * What the user touches/clicks to trigger a dice roll.
  *
- * @jsx React.DOM
  **/
 
 /*jshint unused:false*/

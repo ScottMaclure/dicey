@@ -3,7 +3,6 @@
  *
  * A page header component.
  *
- * @jsx React.DOM
  **/
 
 var React = require('react');
@@ -19,7 +18,7 @@ exports.PageHeader = React.createClass({
 			title: 'PageHeader title'
 		};
 	},
-	
+
 	render: function () {
 		/*jshint ignore:start*/
 		return (
