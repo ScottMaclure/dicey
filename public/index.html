@@ -7,34 +7,47 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Dicey! Die roller.</title>
+		<title>Dicey.</title>
 
 	</head>
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="vendors/bootstrap.min.css">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link rel="stylesheet" href="vendors/bootstrap-theme.min.css">
 
 	<body>
 
 		<!-- Replaced dynamically with Dicey's ReactJS app. -->
 		<div id="appContainer"></div>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="//code.jquery.com/jquery-1.12.3.min.js"></script>
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-		<!-- Dicey's JS, assumes the above. -->
-		<script type="text/javascript" src="bundle.js"></script>
-
 		<!-- Github ribbon -->
 		<div style="text-align: center;">
 			<a href="https://github.com/ScottMaclure/dicey">Fork me on GitHub</a>
 		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="vendors/jquery-1.12.3.min.js"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="vendors/bootstrap.min.js"></script>
+
+		<!-- Dicey's JS, assumes the above. -->
+		<script type="text/javascript" src="bundle.js"></script>
+
+		<script type="text/javascript">
+			// If browser supports it, use ServiceWorker to provide offline app.
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/service-worker.js')
+					.then(function () {
+						console.log('ServiceWorker registered.');
+					})
+					.catch(function (err) {
+						console.error('ServiceWorker failed registration, err:', err);
+					});
+			}
+		</script>
 
 	</body>
 
