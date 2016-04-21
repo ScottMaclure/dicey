@@ -12,7 +12,7 @@ var React = require('react');
 exports.DiceBar = React.createClass({
 
 	propTypes: {
-		dice: React.PropTypes.arrayOf(React.PropTypes.string)
+		dice: React.PropTypes.arrayOf(React.PropTypes.object)
 	},
 
 	getDefaultProps: function () {
@@ -38,16 +38,16 @@ exports.DiceBar = React.createClass({
 				return (
 					<button
 						type="button"
-						className="btn btn-primary"
+						className={'btn ' + (die.cssClass || 'btn-info')}
 						onClick={self.handleClick}
-					>{die}</button>
+					>{die.die}</button>
 				);
 				/*jshint ignore:end*/
 			});
 
 			/*jshint ignore:start*/
 			return (
-				<div className="btn-group-vertical btn-group-lg">
+				<div className="btn-group-vertical btn-group-sm">
 					{currentGroup}
 				</div>
 			);
