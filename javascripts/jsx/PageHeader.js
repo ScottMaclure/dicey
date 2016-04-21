@@ -22,9 +22,16 @@ exports.PageHeader = React.createClass({
 	render: function () {
 		/*jshint ignore:start*/
 		return (
-			<h1 className="pageHeader">
-				{this.props.title}
-			</h1>
+			<nav className="navbar navbar-default navbar-fixed-top">
+				<div className="container-fluid">
+					<div className="navbar-header">
+						<a className="navbar-brand" href="/">
+							<img alt="Brand" src="images/logo-192.png" width="20" height="20"/>
+							<span>{this.props.title}</span>
+						</a>
+					</div>
+				</div>
+			</nav>
 		);
 		/*jshint ignore:end*/
 	}
