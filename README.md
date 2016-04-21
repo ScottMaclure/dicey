@@ -6,9 +6,9 @@ Dicey is a web-based die rolling application for use in tabletop roleplaying gam
 
 The primary design focus is to have dicey running on your mobile phone, and you use it as a replacement for physical dice.
 
-Website: 
+Website:
 
-http://scottmaclure.github.io/dicey/
+http://scott.maclure.com.au/dicey/
 
 ## Goals
 
@@ -22,12 +22,16 @@ For the agile board, see here:
 
 https://waffle.io/ScottMaclure/dicey
 
-## Building with Gulp
+## Building the web app
+
+Two things:
 
 ```
-npm install
-sudo npm install -g gulp
-gulp
+# install and kick off https server
+npm start
+
+# watch js and re-bundle on changes
+npm run watch
 ```
 
 ## Deployment with gh-pages

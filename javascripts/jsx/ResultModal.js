@@ -1,8 +1,8 @@
 /**
- * @jsx React.DOM
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 exports.ResultModal = React.createClass({
 
@@ -15,7 +15,7 @@ exports.ResultModal = React.createClass({
 		if (this.props.dieString) {
 
 			// Trigger Bootstrap's modal functionality.
-			$(this.getDOMNode()).modal();
+			$(ReactDOM.findDOMNode(this)).modal();
 
 		}
 

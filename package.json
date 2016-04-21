@@ -1,18 +1,20 @@
 {
   "name": "dicey",
   "description": "Pen-and-paper roleplaying game aid - dice roller.",
-  "version": "0.0.1",
+  "version": "2.0.1",
+  "scripts": {
+    "start": "npm prune && npm install && npm run server",
+    "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt --verbose --compress -d public/",
+    "watch": "node ./scripts/browserify.js"
+  },
   "devDependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "droll": "^0.1.2",
+    "local-web-server": "^1.2.2",
     "react": "*",
-    "react-tools": "*",
-    "browserify": "*",
-    "jquery": "*",
-    "gulp-react": "^0.3.3",
-    "gulp": "^3.8.0",
-    "gulp-browserify": "^0.5.0",
-    "gulp-rename": "^1.2.0",
-    "node-static": "^0.7.3",
-    "droll": "^0.1.1",
-    "gulp-uglify": "^0.3.0"
+    "react-dom": "^15.0.1",
+    "watchify": "^3.7.0"
   }
 }

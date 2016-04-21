@@ -1,8 +1,7 @@
 /**
  *
  * TODO Currently using hard-coded actions. No need for dynamic actions or anything yet.
- * 
- * @jsx React.DOM
+ *
  */
 
 var React = require('react');

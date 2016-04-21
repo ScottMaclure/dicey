@@ -3,7 +3,6 @@
  *
  * What the user touches/clicks to trigger a dice roll.
  *
- * @jsx React.DOM
  **/
 
 /*jshint unused:false*/
@@ -22,11 +21,9 @@ exports.DiceBar = React.createClass({
 		};
 	},
 
-	handleClick: function () {
-
-		// FIXME Why isn't there a simpler way to pass dynamic properties for clicks?
-		var die = $(this.getDOMNode()).find('[data-reactid="' + arguments[1] + '"]').text();
-
+	handleClick: function (event) {
+		// For now, use the button text as the die to roll, eg "1d4".
+		var die = event.target.textContent;
 		this.props.onDieRoll(die);
 	},
 
