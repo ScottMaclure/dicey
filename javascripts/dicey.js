@@ -29,7 +29,7 @@ var data = {
 			{die: '1d16'},
 			{die: '1d24'},
 			{die: '1d30'},
-			{die: '3d6'},
+			{die: '3d6', cssClass: 'btn-success'},
 			{die: '4d6'},
 			{die: '11d10'}
 		]
