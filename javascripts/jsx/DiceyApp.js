@@ -27,26 +27,20 @@ exports.DiceyApp = React.createClass({
 	 */
 	propTypes: {
 		pageTitle: React.PropTypes.string,
-		resultsLog: React.PropTypes.arrayOf(React.PropTypes.string),
-		latestResult: React.PropTypes.object,
+		initialResultsLog: React.PropTypes.arrayOf(React.PropTypes.string),
+		initialLatestResult: React.PropTypes.object,
 		diceGroups: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.object))
 	},
 
 	getInitialState: function () {
 		return {
-			resultsLog: [],
-			latestResult: {
+			resultsLog: this.props.initialResultsLog,
+			latestResult: this.props.initialLatestResult || {
 				timeStamp: '',
 				dieString: '',
 				dieResult: ''
 			}
 		};
-	},
-
-	componentWillMount: function () {
-		this.setState({
-			resultsLog: this.props.resultsLog
-		});
 	},
 
 	render: function () {

@@ -6,11 +6,7 @@ var ReactDOM = require('react-dom');
 
 exports.ResultModal = React.createClass({
 
-	/**
-	 * Invoked immediately after updating occurs. This method is not called for the initial render.
-	 */
-	componentDidUpdate: function (prevProps, prevState) {
-
+	showModal: function () {
 		// Show only if truthy.
 		if (this.props.dieString) {
 
@@ -18,7 +14,14 @@ exports.ResultModal = React.createClass({
 			$(ReactDOM.findDOMNode(this)).modal();
 
 		}
+	},
 
+	componentDidMount: function () {
+		this.showModal();
+	},
+
+	componentDidUpdate: function (prevProps, prevState) {
+		this.showModal();
 	},
 
 	render: function () {
