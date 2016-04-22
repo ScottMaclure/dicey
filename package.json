@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm prune && npm install && npm run server",
     "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt --verbose --compress --no-cache -d public/",
-    "watch": "node ./scripts/watch.js"
+    "watch": "node ./scripts/watch.js",
+    "ncu": "ncu --packageFile package.json --loglevel verbose"
   },
   "devDependencies": {
     "babel-preset-react": "^6.5.0",
