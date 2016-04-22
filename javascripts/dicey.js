@@ -3,7 +3,6 @@
 // Load libraries.
 var React = require('react');
 var ReactDOM = require('react-dom');
-
 var DiceyApp = require('./jsx/DiceyApp').DiceyApp;
 
 // Emit for firebase to catch.
@@ -13,6 +12,7 @@ window.diceyData.onResultsLogUpdate = function (logLine) {
 	));
 };
 
+// Emit for firebase to catch.
 window.diceyData.onResultsLogClear = function () {
 	document.dispatchEvent(new CustomEvent('dicey.onResultsLogClear'));
 }

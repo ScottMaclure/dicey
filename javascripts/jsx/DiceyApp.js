@@ -7,6 +7,8 @@
 
 /*jshint unused:false*/
 
+const RESULT_LOG_SPACE = '---';
+
 var React = require('react');
 
 // React app components.
@@ -60,7 +62,7 @@ exports.DiceyApp = React.createClass({
 						<div className="col-xs-8 col-sm-8 mainRowCenter">
 							<ResultsActions
 								onResultsClear={this.handleResultsLogClear}
-								onResultsSpace={this.handleResultsSpace}
+								onResultsSpace={this.handleResultsLogSpace}
 							/>
 							<ResultsLog log={this.state.resultsLog} />
 						</div>
@@ -119,6 +121,7 @@ exports.DiceyApp = React.createClass({
 	},
 
 	handleResultsLogClear: function () {
+
 		this.setState({
 			resultsLog: [],
 			latestResult: {
@@ -127,12 +130,15 @@ exports.DiceyApp = React.createClass({
 				dieResult: ''
 			}
 		});
+
 		// API
 		this.props.onResultsLogClear();
+
 	},
 
-	handleResultsSpace: function () {
-		this.state.resultsLog.unshift('---');
+	handleResultsLogSpace: function () {
+
+		this.state.resultsLog.unshift(RESULT_LOG_SPACE);
 		this.setState({
 			resultsLog: this.state.resultsLog,
 			latestResult: {
@@ -141,6 +147,10 @@ exports.DiceyApp = React.createClass({
 				dieResult: ''
 			}
 		});
+
+		// API
+		this.props.onResultsLogUpdate(RESULT_LOG_SPACE);
+
 	}
 
 });
