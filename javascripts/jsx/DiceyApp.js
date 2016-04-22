@@ -59,7 +59,7 @@ exports.DiceyApp = React.createClass({
 						</div>
 						<div className="col-xs-8 col-sm-8 mainRowCenter">
 							<ResultsActions
-								onResultsClear={this.handleResultsClear}
+								onResultsClear={this.handleResultsLogClear}
 								onResultsSpace={this.handleResultsSpace}
 							/>
 							<ResultsLog log={this.state.resultsLog} />
@@ -100,7 +100,9 @@ exports.DiceyApp = React.createClass({
 		var rollData = droll.roll(die);
 		var dieResult = DiceyUtils.getDieResultFromDroll(rollData);
 
-		resultsLog.unshift(timeStamp + ' ' + die + ': ' + dieResult);
+		var newLogLine = timeStamp + ' ' + die + ': ' + dieResult;
+
+		resultsLog.unshift(newLogLine);
 
 		this.setState({
 			resultsLog: resultsLog,
@@ -111,9 +113,12 @@ exports.DiceyApp = React.createClass({
 			}
 		});
 
+		// API
+		this.props.onResultsLogUpdate(newLogLine);
+
 	},
 
-	handleResultsClear: function () {
+	handleResultsLogClear: function () {
 		this.setState({
 			resultsLog: [],
 			latestResult: {
@@ -122,6 +127,8 @@ exports.DiceyApp = React.createClass({
 				dieResult: ''
 			}
 		});
+		// API
+		this.props.onResultsLogClear();
 	},
 
 	handleResultsSpace: function () {
