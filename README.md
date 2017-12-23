@@ -8,7 +8,7 @@ The primary design focus is to have dicey running on your mobile phone, and you 
 
 Official site:
 
-https://dicey.firebaseapp.com/
+https://dicey.maclure.info/
 
 ## Goals
 
