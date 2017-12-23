@@ -7,6 +7,8 @@
 
 /*jshint unused:false*/
 
+const RESULT_LOG_SPACE = '---';
+
 var React = require('react');
 
 // React app components.
@@ -27,26 +29,20 @@ exports.DiceyApp = React.createClass({
 	 */
 	propTypes: {
 		pageTitle: React.PropTypes.string,
-		resultsLog: React.PropTypes.arrayOf(React.PropTypes.string),
-		latestResult: React.PropTypes.object,
+		initialResultsLog: React.PropTypes.arrayOf(React.PropTypes.string),
+		initialLatestResult: React.PropTypes.object,
 		diceGroups: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.object))
 	},
 
 	getInitialState: function () {
 		return {
-			resultsLog: [],
-			latestResult: {
+			resultsLog: this.props.initialResultsLog,
+			latestResult: this.props.initialLatestResult || {
 				timeStamp: '',
 				dieString: '',
 				dieResult: ''
 			}
 		};
-	},
-
-	componentWillMount: function () {
-		this.setState({
-			resultsLog: this.props.resultsLog
-		});
 	},
 
 	render: function () {
@@ -65,8 +61,8 @@ exports.DiceyApp = React.createClass({
 						</div>
 						<div className="col-xs-8 col-sm-8 mainRowCenter">
 							<ResultsActions
-								onResultsClear={this.handleResultsClear}
-								onResultsSpace={this.handleResultsSpace}
+								onResultsClear={this.handleResultsLogClear}
+								onResultsSpace={this.handleResultsLogSpace}
 							/>
 							<ResultsLog log={this.state.resultsLog} />
 						</div>
@@ -106,7 +102,9 @@ exports.DiceyApp = React.createClass({
 		var rollData = droll.roll(die);
 		var dieResult = DiceyUtils.getDieResultFromDroll(rollData);
 
-		resultsLog.unshift(timeStamp + ' ' + die + ': ' + dieResult);
+		var newLogLine = timeStamp + ' ' + die + ': ' + dieResult;
+
+		resultsLog.unshift(newLogLine);
 
 		this.setState({
 			resultsLog: resultsLog,
@@ -117,9 +115,13 @@ exports.DiceyApp = React.createClass({
 			}
 		});
 
+		// API
+		this.props.onResultsLogUpdate(newLogLine);
+
 	},
 
-	handleResultsClear: function () {
+	handleResultsLogClear: function () {
+
 		this.setState({
 			resultsLog: [],
 			latestResult: {
@@ -128,10 +130,15 @@ exports.DiceyApp = React.createClass({
 				dieResult: ''
 			}
 		});
+
+		// API
+		this.props.onResultsLogClear();
+
 	},
 
-	handleResultsSpace: function () {
-		this.state.resultsLog.unshift('---');
+	handleResultsLogSpace: function () {
+
+		this.state.resultsLog.unshift(RESULT_LOG_SPACE);
 		this.setState({
 			resultsLog: this.state.resultsLog,
 			latestResult: {
@@ -140,6 +147,10 @@ exports.DiceyApp = React.createClass({
 				dieResult: ''
 			}
 		});
+
+		// API
+		this.props.onResultsLogUpdate(RESULT_LOG_SPACE);
+
 	}
 
 });

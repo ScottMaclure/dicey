@@ -15,7 +15,10 @@ var fs = require('fs'),
 var isDebugMode = false;
 
 var b = browserify({
-		entries: [path.join('javascripts', 'dicey.js')],
+		entries: [
+			path.join('javascripts', 'dicey.js'),
+			path.join('javascripts', 'firebase.js')
+		],
 		// sourcemaps
 		debug: isDebugMode,
 		cache: {},
