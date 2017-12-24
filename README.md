@@ -33,3 +33,11 @@ npm start
 # watch js and re-bundle on changes
 npm run watch
 ```
+
+## Deploying
+
+https://firebase.google.com/docs/hosting/quickstart
+
+```
+firebase deploy
+```
