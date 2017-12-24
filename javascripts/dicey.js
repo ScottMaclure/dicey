@@ -1,5 +1,9 @@
 // Main dicey application.
 
+if (process.env.NODE_ENV === "development") {
+	console.log('development mode')
+}
+
 // Load libraries.
 var React = require('react');
 var ReactDOM = require('react-dom');

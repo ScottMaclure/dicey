@@ -8,9 +8,12 @@ const fs = require('fs'),
 	browserify = require('browserify'),
 	watchify = require('watchify'),
 	babelify = require('babelify'),
-	babelMinify = require('babel-minify'),
-	swPrecache = require('sw-precache'),
-	execSync = require('child_process').execSync;
+	uglifyify = require('uglifyify'),
+	uglifyjs = require('uglify-js');
+	envify = require('envify'),
+	// babelMinify = require('babel-minify'),
+	// execSync = require('child_process').execSync,
+	swPrecache = require('sw-precache');
 
 // Disable sourcemaps for now, etc.
 var isDebugMode = process.env.NODE_ENV === 'development';
@@ -47,7 +50,6 @@ function bundle() {
 	generateBundle().on('finish', () => {
 
 		// TODO Switch to https://parceljs.org/
-		// minifyBundle()
 
 		generateServiceWorker().then(() => {
 			log('watch.js: complete in ' + ((Date.now() - start) / 1000) + 's');
@@ -60,12 +62,6 @@ function bundle() {
 
 }
 
-function minifyBundle() {
-	log('Minifying...')
-	stdout = execSync('npm run minify')
-	log('Minifying complete, stdout:', stdout)
-}
-
 /**
  * Rebuild ReactJS app and package for client browser.
  * @return {stream.Writable} https://nodejs.org/api/stream.html#stream_class_stream_writable
@@ -73,16 +69,16 @@ function minifyBundle() {
 function generateBundle() {
 	log('generateBundle...');
 	return b
-	// TODO use env for dev/prod builds.
-	// TODO How to use minify preset?
-	// .transform('babelify', {presets: ['react', 'minify']})
 	.transform('babelify', {presets: ['react']})
+	.transform('envify')
+	.transform('uglifyify', {global: true})
 	.bundle()
 	.on('error', (err) => {
 		log(err.message);
 		console.log('argv:', process.argv)
 		this.emit('end');
 	})
+	// .pipe(uglifyjs.minify)
 	.pipe(fs.createWriteStream(path.join('public', 'bundle.js')))
 	.on('finish', () => {
 		log('generateBundle done.');

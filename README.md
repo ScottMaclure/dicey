@@ -34,10 +34,12 @@ npm start
 npm run watch
 ```
 
-## Deploying
+## Production Build and Deploy
 
-https://firebase.google.com/docs/hosting/quickstart
+In Powershell:
 
 ```
+$env:NODE_ENV="production"
+npm run watch
 firebase deploy
 ```
