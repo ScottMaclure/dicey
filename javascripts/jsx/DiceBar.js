@@ -27,8 +27,8 @@ exports.DiceBar = createReactClass({
 
 	handleClick: function (event) {
 		// For now, use the button text as the die to roll, eg "1d4".
-		var die = event.target.textContent;
-		this.props.onDieRoll(die);
+		// var die = event.target.textContent;
+		this.props.onDieRoll(event.target.getAttribute('die'))
 	},
 
 	render: function () {
@@ -45,7 +45,8 @@ exports.DiceBar = createReactClass({
 						type="button"
 						className={'btn ' + (die.cssClass || 'btn-info')}
 						onClick={self.handleClick}
-					>{die.die}</button>
+						die={die.die}
+					>{die.title || die.die}</button>
 				);
 				/*jshint ignore:end*/
 			});
