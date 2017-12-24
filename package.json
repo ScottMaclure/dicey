@@ -4,20 +4,29 @@
   "version": "3.1.3",
   "scripts": {
     "start": "npm prune && npm install && npm run server",
-    "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt --verbose --compress --no-cache -d public/",
+    "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt -z -n -d public/",
     "watch": "node ./scripts/watch.js",
-    "ncu": "ncu --packageFile package.json --loglevel verbose"
+    "minify": "./node_modules/.bin/minify ./public/bundle.js -o ./public/bundle.min.js",
+    "ncu": "ncu --packageFile package.json --loglevel verbose",
+    "ncuu": "ncu --packageFile package.json --loglevel verbose -u"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-minify": "^0.2.0",
+    "babel-preset-minify": "^0.2.0",
     "babel-preset-react": "^6.5.0",
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
-    "droll": "^0.1.2",
-    "firebase": "^2.4.2",
-    "local-web-server": "^1.2.2",
-    "react": "*",
-    "react-dom": "^15.0.1",
-    "sw-precache": "^3.1.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "droll": "^0.2.1",
+    "firebase": "^4.8.1",
+    "local-web-server": "^2.3.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sw-precache": "^5.2.0",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.2",
+    "prop-types": "^15.6.0"
   }
 }

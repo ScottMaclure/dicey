@@ -3,8 +3,9 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var createReactClass = require('create-react-class');
 
-exports.ResultModal = React.createClass({
+exports.ResultModal = createReactClass({
 
 	showModal: function () {
 		// Show only if truthy.

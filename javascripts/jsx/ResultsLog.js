@@ -8,11 +8,13 @@
 /*jshint unused:false*/
 
 var React = require('react');
+var PropTypes = require('prop-types'); // ES5 with npm
+var createReactClass = require('create-react-class');
 
-exports.ResultsLog = React.createClass({
+exports.ResultsLog = createReactClass({
 
 	propTypes: {
-		log: React.PropTypes.arrayOf(React.PropTypes.string)
+		log: PropTypes.arrayOf(PropTypes.string)
 	},
 
 	getDefaultProps: function () {

@@ -5,8 +5,9 @@
  */
 
 var React = require('react');
+var createReactClass = require('create-react-class');
 
-exports.ResultsActions = React.createClass({
+exports.ResultsActions = createReactClass({
 
 	render: function () {
 

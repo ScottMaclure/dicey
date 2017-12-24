@@ -10,6 +10,8 @@
 const RESULT_LOG_SPACE = '---';
 
 var React = require('react');
+var PropTypes = require('prop-types'); // ES5 with npm
+var createReactClass = require('create-react-class');
 
 // React app components.
 var PageHeader = require('./PageHeader').PageHeader;
@@ -22,16 +24,16 @@ var ResultsLog = require('./ResultsLog').ResultsLog;
 var DiceyUtils = require('../DiceyUtils').DiceyUtils;
 var droll = require('droll');
 
-exports.DiceyApp = React.createClass({
+exports.DiceyApp = createReactClass({
 
 	/**
 	 * http://facebook.github.io/react/docs/reusable-components.html
 	 */
 	propTypes: {
-		pageTitle: React.PropTypes.string,
-		initialResultsLog: React.PropTypes.arrayOf(React.PropTypes.string),
-		initialLatestResult: React.PropTypes.object,
-		diceGroups: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.object))
+		pageTitle: PropTypes.string,
+		initialResultsLog: PropTypes.arrayOf(PropTypes.string),
+		initialLatestResult: PropTypes.object,
+		diceGroups: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object))
 	},
 
 	getInitialState: function () {
@@ -57,7 +59,7 @@ exports.DiceyApp = React.createClass({
 
 					<div className="row mainRow">
 						<div className="col-xs-2 col-sm-2 text-left mainRowLeft">
-							<DiceBar diceGroups={this.props.diceGroups.slice(0, 1)} onDieRoll={this.handleDieRoll}/>
+							<DiceBar name="left" diceGroups={this.props.diceGroups.slice(0, 1)} onDieRoll={this.handleDieRoll}/>
 						</div>
 						<div className="col-xs-8 col-sm-8 mainRowCenter">
 							<ResultsActions
@@ -67,7 +69,7 @@ exports.DiceyApp = React.createClass({
 							<ResultsLog log={this.state.resultsLog} />
 						</div>
 						<div className="col-xs-2 col-sm-2 text-right mainRowRight">
-							<DiceBar diceGroups={this.props.diceGroups.slice(1, 2)} onDieRoll={this.handleDieRoll}/>
+							<DiceBar name="right" diceGroups={this.props.diceGroups.slice(1, 2)} onDieRoll={this.handleDieRoll}/>
 						</div>
 					</div>
 

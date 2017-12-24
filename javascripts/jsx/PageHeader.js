@@ -6,11 +6,13 @@
  **/
 
 var React = require('react');
+var PropTypes = require('prop-types'); // ES5 with npm
+var createReactClass = require('create-react-class');
 
-exports.PageHeader = React.createClass({
+exports.PageHeader = createReactClass({
 
 	propTypes: {
-		title: React.PropTypes.string
+		title: PropTypes.string
 	},
 
 	getDefaultProps: function () {

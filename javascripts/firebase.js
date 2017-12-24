@@ -1,4 +1,10 @@
 /**
+ * https://firebase.google.com/docs/web/setup
+ */
+
+ const firebase = require("firebase");
+
+/**
  * Like Object.keys, but for values.
  */
 function objectValues(obj) {
@@ -7,9 +13,18 @@ function objectValues(obj) {
 	});
 }
 
-var Firebase = require('firebase');
-var diceyFirebase = new Firebase('https://dicey.firebaseio.com/');
-var resultsLogRef = diceyFirebase.child('resultsLog');
+var firebaseApp = firebase.initializeApp({
+	apiKey: "AIzaSyBSJ1yBP0fu_JqaurSA3EaBs4X8AJc_PdI",
+	authDomain: "dicey.firebaseapp.com",
+	databaseURL: "https://dicey.firebaseio.com",
+	projectId: "firebase-dicey",
+	storageBucket: "firebase-dicey.appspot.com",
+	messagingSenderId: "1089485055417"
+})
+var firebaseDatabase = firebaseApp.database()
+console.log('firebaseDatabase:', firebaseDatabase)
+
+var resultsLogRef = firebaseDatabase.ref('resultsLog');
 
 // Listen for Firebase updates.
 resultsLogRef.on('value', function (snapshot) {
@@ -23,7 +38,7 @@ resultsLogRef.on('value', function (snapshot) {
 //resultsLogRef.push('This is another line: ' + new Date().toLocaleFormat());
 document.addEventListener('dicey.onResultsLogUpdate', function (event) {
 	resultsLogRef.push(event.detail, function () {
-		diceyFirebase.child('resultsLog/0').remove();
+		firebaseDatabase.ref('resultsLog/0').remove();
 	});
 });
 

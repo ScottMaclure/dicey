@@ -8,15 +8,19 @@
 /*jshint unused:false*/
 
 var React = require('react');
+var PropTypes = require('prop-types'); // ES5 with npm
+var createReactClass = require('create-react-class');
 
-exports.DiceBar = React.createClass({
+exports.DiceBar = createReactClass({
 
 	propTypes: {
-		dice: React.PropTypes.arrayOf(React.PropTypes.object)
+		name: PropTypes.string,
+		dice: PropTypes.arrayOf(PropTypes.object)
 	},
 
 	getDefaultProps: function () {
 		return {
+			name: 'SomeDiceBar',
 			dice: []
 		};
 	},
@@ -31,12 +35,13 @@ exports.DiceBar = React.createClass({
 
 		var self = this;
 
-		var diceGroups = self.props.diceGroups.map(function (diceGroup) {
+		var diceGroups = self.props.diceGroups.map(function (diceGroup, groupsIndex) {
 
-			var currentGroup = diceGroup.map(function (die) {
+			var currentGroup = diceGroup.map(function (die, index) {
 				/*jshint ignore:start*/
 				return (
 					<button
+						key={self.props.name + index}
 						type="button"
 						className={'btn ' + (die.cssClass || 'btn-info')}
 						onClick={self.handleClick}
@@ -47,7 +52,7 @@ exports.DiceBar = React.createClass({
 
 			/*jshint ignore:start*/
 			return (
-				<div className="btn-group-vertical btn-group-sm">
+				<div key={self.props.name + groupsIndex} className="btn-group-vertical btn-group-sm">
 					{currentGroup}
 				</div>
 			);
