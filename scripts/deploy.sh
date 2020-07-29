@@ -3,9 +3,9 @@
 # Set prod mode
 export NODE_ENV="production"
 
-# Update deps
-npm prune
-npm install
+# Deps updates done already during dev on local machine.
+# npm prune
+# npm install
 
 # Update version - always patch. Hrm...
 npm version patch -git-tag-version false
