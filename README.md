@@ -40,12 +40,12 @@ npm run watch
 
 ## Production Build and Deploy
 
-In Powershell (am using a Win10 machine):
-
 ```
-$env:NODE_ENV="production"
-npm run watch
-firebase deploy
+# Login to Firebase CLI (once only)
+npx firebase login
+
+# Deploy from git bash
+./scripts/deploy.sh
 ```
 
 ## What's next?

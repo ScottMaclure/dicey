@@ -25,7 +25,7 @@ var firebaseApp = firebase.initializeApp({
 	messagingSenderId: "1089485055417"
 })
 var firebaseDatabase = firebaseApp.database()
-console.log('firebaseDatabase:', firebaseDatabase)
+// console.log('firebaseDatabase:', firebaseDatabase)
 
 var resultsLogRef = firebaseDatabase.ref('resultsLog');
 

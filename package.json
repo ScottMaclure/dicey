@@ -21,6 +21,7 @@
     "droll": "*",
     "envify": "*",
     "firebase": "*",
+    "firebase-tools": "*",
     "local-web-server": "*",
     "prop-types": "*",
     "react-dom": "*",

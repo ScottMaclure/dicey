@@ -14,8 +14,14 @@ const fs = require('fs'),
 	swPrecache = require('sw-precache');
 
 // Disable sourcemaps for now, etc.
-var isDebugMode = process.env.NODE_ENV === 'development';
+var isDebugMode = process.env.NODE_ENV !== 'production'; // TODO default to dev or prod mode, what's better?
 var buildNumber = 0;
+
+// Only watch when in development mode
+plugins = []
+if (isDebugMode) {
+	plugins.push(watchify)
+}
 
 var b = browserify({
 		entries: [
@@ -26,7 +32,7 @@ var b = browserify({
 		debug: isDebugMode,
 		cache: {},
 		packageCache: {},
-		plugin: [watchify]
+		plugin: plugins
 	})
 	.on('update', bundle);
 
