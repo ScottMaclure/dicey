@@ -18,13 +18,23 @@ https://dicey.maclure.info/
 * Use some new tools for learnin' new things
 * Zero-cost hosting
 
-## How does it work?
+## Technical Design
+
+### Hosting Infrastructure
 
 * Uses Firebase to a) host the webapp and b) act as a public data-store (10GB for free).
 * Custom domains are supported by Firebase, hence dicey.maclure.info (DNS managed elsewhere).
 * Running on the Firebase free tier, so the project has caps on various types of usage (storage & downloads for both database and hosting).
 
-## What are these cert files in your repo?!
+### Event Handling
+
+Between the React app and Firebase, Dicey uses the DOM's "CustomEvent" API via `document.dispatchEvent()` and `document.addEventListener()` methods.
+
+* index.html defines `window.diceyData`, as the initial/config data for the application.
+* dicey.js defines `window.diceyApp` as the top level React component in the application, which is therefore available to firebase.js. This contains the running state after init.
+* firebase.js uses `document.addEventListener` to listen for events from the dicey app to update the database, and it also listens to Firebase via its `on()` API, to update the client application with new data.
+
+### What are these cert files in your repo?!
 
 Relax, that's for local devtest (for service-workers to work with zero-config). They're not used for production deployment.
 
@@ -44,7 +54,7 @@ npm run watch
 # Login to Firebase CLI (once only)
 npx firebase login
 
-# Deploy from git bash
+# Deploy from git bash (needs ssh-agent running for github)
 ./scripts/deploy.sh
 ```
 
