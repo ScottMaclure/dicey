@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Set prod mode
+echo "Setting production mode"
 export NODE_ENV="production"
 
 # Deps updates done already during dev on local machine.

@@ -1,7 +1,7 @@
 {
   "name": "dicey",
   "description": "Pen-and-paper roleplaying game aid - dice roller.",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "license": "MIT",
   "scripts": {
     "start": "npm prune && npm install && npm run server",
