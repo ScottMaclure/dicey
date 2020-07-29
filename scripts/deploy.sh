@@ -18,7 +18,7 @@ APP_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | xargs)
 
-echo "Building APP_VERSION=${APP_VERSION}..."
+echo "Building APP_VERSION=${APP_VERSION}"
 
 sed -i "s/APP_VERSION/$APP_VERSION/g" ./public/index.html
 
@@ -29,11 +29,16 @@ npm run watch
 npx firebase deploy
 
 # Revert back to templated version.
+echo "Reverting APP_VERSION string"
 sed -i "s/$APP_VERSION/APP_VERSION/g" ./public/index.html
 
 # Update github, commit version update
+echo "Committing deploy-related changes and pushing to remote"
 git commit -am "Deploy"
 git push
 
+echo "Cleanup"
 # Remove production mode.
 unset NODE_ENV
+
+echo "Done"
