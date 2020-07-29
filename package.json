@@ -11,25 +11,25 @@
     "ncuu": "ncu --packageFile package.json --loglevel verbose -u"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-minify": "^0.2.0",
-    "babel-preset-minify": "^0.2.0",
-    "babel-preset-react": "^6.5.0",
-    "babelify": "^8.0.0",
-    "browserify": "^14.5.0",
-    "droll": "^0.2.1",
-    "envify": "^4.1.0",
-    "firebase": "^4.8.1",
-    "local-web-server": "^2.3.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "sw-precache": "^5.2.0",
-    "uglify-js": "^3.2.2",
-    "uglifyify": "^4.0.5",
-    "watchify": "^3.7.0"
+    "babel-core": "*",
+    "babel-minify": "*",
+    "babel-preset-minify": "*",
+    "babel-preset-react": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "droll": "*",
+    "envify": "*",
+    "firebase": "*",
+    "local-web-server": "*",
+    "react": "*",
+    "react-dom": "*",
+    "sw-precache": "*",
+    "uglify-js": "*",
+    "uglifyify": "*",
+    "watchify": "*"
   },
   "dependencies": {
-    "create-react-class": "^15.6.2",
-    "prop-types": "^15.6.0"
+    "create-react-class": "*",
+    "prop-types": "*"
   }
 }
