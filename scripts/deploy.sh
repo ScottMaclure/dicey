@@ -28,6 +28,9 @@ npm run watch
 # Upload to firebase hosting, requires npx firebase login
 npx firebase deploy
 
+# Revert back to templated version.
+sed -i "s/$APP_VERSION/APP_VERSION/g" ./public/index.html
+
 # Update github, commit version update
 git commit -am "Deploy"
 git push
