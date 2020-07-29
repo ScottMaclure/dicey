@@ -1,8 +1,11 @@
 /**
+ * Reference:
  * https://firebase.google.com/docs/web/setup
+ * https://www.npmjs.com/package/firebase
  */
 
- const firebase = require("firebase");
+const firebase = require("firebase/app");
+require('firebase/database');
 
 /**
  * Like Object.keys, but for values.

@@ -2,6 +2,7 @@
   "name": "dicey",
   "description": "Pen-and-paper roleplaying game aid - dice roller.",
   "version": "3.1.3",
+  "license": "MIT",
   "scripts": {
     "start": "npm prune && npm install && npm run server",
     "server": "./node_modules/.bin/ws --key ws.key --cert ws.crt -z -n -d public/",
@@ -11,25 +12,22 @@
     "ncuu": "ncu --packageFile package.json --loglevel verbose -u"
   },
   "devDependencies": {
-    "babel-core": "*",
-    "babel-minify": "*",
+    "@babel/core": "*",
+    "@babel/preset-react": "*",
     "babel-preset-minify": "*",
-    "babel-preset-react": "*",
     "babelify": "*",
     "browserify": "*",
+    "create-react-class": "*",
     "droll": "*",
     "envify": "*",
     "firebase": "*",
     "local-web-server": "*",
-    "react": "*",
+    "prop-types": "*",
     "react-dom": "*",
+    "react": "*",
     "sw-precache": "*",
     "uglify-js": "*",
-    "uglifyify": "*",
+    "uglifyify": "^5.0.2",
     "watchify": "*"
-  },
-  "dependencies": {
-    "create-react-class": "*",
-    "prop-types": "*"
   }
 }

@@ -11,8 +11,6 @@ const fs = require('fs'),
 	uglifyify = require('uglifyify'),
 	uglifyjs = require('uglify-js');
 	envify = require('envify'),
-	// babelMinify = require('babel-minify'),
-	// execSync = require('child_process').execSync,
 	swPrecache = require('sw-precache');
 
 // Disable sourcemaps for now, etc.
@@ -69,7 +67,7 @@ function bundle() {
 function generateBundle() {
 	log('generateBundle...');
 	return b
-	.transform('babelify', {presets: ['react']})
+	.transform('babelify', {presets: ['@babel/react']})
 	.transform('envify')
 	.transform('uglifyify', {global: true})
 	.bundle()
