@@ -10,7 +10,17 @@ export NODE_ENV="production"
 # Update version - always patch. Hrm...
 npm version patch -git-tag-version false
 
-# TODO Inject npm version into the frontend
+# TODO Inject npm version into the frontend code
+APP_VERSION=$(cat package.json \
+  | grep version \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g' \
+  | xargs)
+
+echo "Building APP_VERSION=${APP_VERSION}..."
+
+sed -i "s/APP_VERSION/$APP_VERSION/g" ./public/index.html
 
 # Compile JS, in prod mode this won't watch, it will just build
 npm run watch

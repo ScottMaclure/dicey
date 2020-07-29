@@ -53,7 +53,7 @@ exports.DiceyApp = createReactClass({
 
 			<div className="diceyApp">
 
-				<PageHeader title={this.props.pageTitle}/>
+				<PageHeader title={this.props.pageTitle} version={this.props.appVersion}/>
 
 				<div className="container">
 

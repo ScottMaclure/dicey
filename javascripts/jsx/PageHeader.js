@@ -12,7 +12,8 @@ var createReactClass = require('create-react-class');
 exports.PageHeader = createReactClass({
 
 	propTypes: {
-		title: PropTypes.string
+		title: PropTypes.string,
+		version: PropTypes.string
 	},
 
 	getDefaultProps: function () {
@@ -29,7 +30,7 @@ exports.PageHeader = createReactClass({
 					<div className="navbar-header">
 						<a className="navbar-brand" href="/">
 							<img alt="Brand" src="images/logo-192.png" width="20" height="20"/>
-							<span>{this.props.title}</span>
+							<span>{this.props.title}  {this.props.version}</span>
 						</a>
 					</div>
 				</div>
