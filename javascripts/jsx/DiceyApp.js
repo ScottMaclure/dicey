@@ -22,7 +22,8 @@ var ResultsLog = require('./ResultsLog').ResultsLog;
 
 // Helper libraries
 var DiceyUtils = require('../DiceyUtils').DiceyUtils;
-var droll = require('droll');
+var rpgDiceRoller = require('rpg-dice-roller');
+// var diceRoller = new rpgDiceRoller.DiceRoller();
 
 exports.DiceyApp = createReactClass({
 
@@ -100,11 +101,16 @@ exports.DiceyApp = createReactClass({
 		// Generate a nice, readable timestamp, using zero-padding.
 		var timeStamp = DiceyUtils.getFormattedTimestamp(new Date());
 
-		// Use droll library, format into a standard string.
-		var rollData = droll.roll(die);
-		var dieResult = DiceyUtils.getDieResultFromDroll(rollData);
-
-		var newLogLine = timeStamp + ' ' + die + ': ' + dieResult;
+		// Use the dice rolling library, formatted into a standard string.
+		var rollData = new rpgDiceRoller.DiceRoll(die);
+		
+		// Old library
+		// var dieResult = DiceyUtils.getDieResultFromDroll(rollData);
+		// var newLogLine = timeStamp + ' ' + die + ': ' + dieResult;
+		
+		// New library
+		var dieResult = `${rollData}`
+		var newLogLine = `${timeStamp} ${rollData}`
 
 		resultsLog.unshift(newLogLine);
 

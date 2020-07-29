@@ -18,33 +18,16 @@ var DiceyUtils = {
 
 	/**
 	 * Generate a pretty timestamp for the User.
+	 * TODO Should we not just use a library like moment-js?
 	 */
 	getFormattedTimestamp: function (someDate) {
 
 		// Generate a nice, readable timestamp, using zero-padding.
-		return [
-			'[',
-			DiceyUtils.zeroPad(someDate.getHours(), 2),
-			':',
-			DiceyUtils.zeroPad(someDate.getMinutes(), 2),
-			':',
-			DiceyUtils.zeroPad(someDate.getSeconds(), 2),
-			']'
-		].join('');
+		let h = DiceyUtils.zeroPad(someDate.getHours(), 2)
+		let m = DiceyUtils.zeroPad(someDate.getMinutes(), 2)
+		let s = DiceyUtils.zeroPad(someDate.getSeconds(), 2)
+		return `[${h}:${m}:${s}]`
 
-	},
-
-	/**
-	 * Pretty formatting for droll result.
-	 * { rolls: [ 5, 2, 2 ], modifier: 1, total: 10 }
-	 */
-	getDieResultFromDroll: function (rollData) {
-
-		if (rollData.rolls.length === 1) {
-			return rollData.total;
-		}
-
-		return '[' + rollData.rolls.join(', ') + '] = ' + rollData.total;
 	}
 
 }
